@@ -7,16 +7,21 @@ import os
 from arcpy import env
 
 arcpy.env.overwriteOutput = True
-arcpy.env.workspace = r"P:\2278 World Resources Institute\GFW\emerging hotspots\Publication\HansenLoss\2_NetCDF"
+arcpy.env.workspace = r"D:\data\ehs-global-run\netcdf"
 
-# Loop through the workspace, find all the netCDFs and run the emerging hot spot analysis GP tool using the same name as the netcdf
-print arcpy.ListFiles()
+netcdf_directory = r"D:\data\ehs-global-run\netcdf\*.nc"
+output_directory = r"D:\data\ehs-global-run\output"
+
+def runEHS(inputNC, outputNC):
+	try:
+		arcpy.EmergingHotSpotAnalysis_stpm(inputNC, "COUNT", outputNC, None, 1, None)
+	except Exception as e:
+		print('Error >>', e)
+
+
 
 for netcdf in arcpy.ListFiles("*.nc"):
-    # Copy file to new location
-    # Get the path to the new file
-    # run EHS
-    print("EHS " + netcdf)
-    arcpy.EmergingHotSpotAnalysis_stpm(netcdf, "COUNT", os.path.splitext(netcdf)[0] + '.shp', "", 1, "")
-
-#print "Emerging Hot Spot Analysis Complete!"
+	print("Processing",netcdf)
+	output_feature = os.path.join(output_directory,netcdf.split('.')[0]+'.shp')
+	runEHS(netcdf,output_feature)
+	print('---------------------------------------------')	
