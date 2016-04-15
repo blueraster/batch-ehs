@@ -5,8 +5,8 @@ import time
 
 starttime = time.time()
 
-inputFile = r'P:\Data\global_admin_boundaries\Admin1.shp'
-outDir = r'P:\2278 World Resources Institute\GFW\emerging hotspots\Publication\HansenLoss\6_shapefiles\Admin1'
+inputFile = r'S:\Data\BigDataZones\ForestZones_SecondRun.shp'
+outDir = r'S:\Data\BigDataZones\Forests'
 
 rows = arcpy.SearchCursor(inputFile)
 row = rows.next()
