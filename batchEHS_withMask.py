@@ -44,3 +44,6 @@ for netcdf in arcpy.ListFiles("*.nc"):
 	runEHS(netcdf,output_feature,mask)
 	print('---------------------------------------------')	
 
+
+
+
