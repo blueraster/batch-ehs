@@ -2,6 +2,7 @@
 # Name: Emerging hotspots - Create global point file
 # Created by: David Eitelberg
 # Created on: 22 February 2017
+# Updated on: 22 March 2017
 #
 # Description:
 # This script creates a global points file for counts of cells with high density tree cover loss from the Hansen tree loss data.
