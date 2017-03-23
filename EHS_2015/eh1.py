@@ -16,6 +16,11 @@
 #   c - Converts the aggregated loss rasters (for each year) to points
 #   d - Adds a date field and populates it with the year that corresponds to the points
 #   e - Appends points to a global point feature class. 
+#
+#
+#            *** NOTE, THIS SCRIPT PRODUCES A GLOBAL POINT FILE FROM INPUTS
+#            *** IT DOES NOT RUN CreateSpaceTimeCube() OR EmergingHotSpotAnalysis()
+#
 ########################################################################################################################################
 
 import os
