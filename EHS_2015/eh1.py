@@ -2,6 +2,7 @@
 # Name: Emerging hotspots - Create global point file
 # Created by: David Eitelberg
 # Created on: 22 February 2017
+# Modified on: 22 March 2017
 #
 # Description:
 # This script creates a global points file for counts of cells with high density tree cover loss from the Hansen tree loss data.
@@ -206,7 +207,7 @@ for short_year in value_years:
         print("   RASTER #{}: {}".format(count, ntpath.basename(raster)))
         write_to_log(log, "   RASTER #{}: {}".format(count, ntpath.basename(raster)))
         
-        #####===== RECLASSIFY YEAR VALUE TO 0 =====#####
+        #####===== RECLASSIFY YEAR VALUE TO 1 =====#####
         print('      Reclassify')
         write_to_log(log, '      Reclassify')
         
@@ -219,7 +220,7 @@ for short_year in value_years:
         reclass_saved = os.path.join(intermediate_files, 'rcl_yr_' + ntpath.basename(raster).split(".")[0] + '_' + str(short_year))
         reclass_raster.save(reclass_saved)
         
-        #####===== AGGREGATE CELLS TO 2500 METER RESOLUTION =====#####
+        #####===== AGGREGATE CELLS - BY SPECIFIED AGGREGATION FACTOR =====#####
         print('      Aggregate')
         write_to_log(log, '      Aggregate')
         start = timer()
